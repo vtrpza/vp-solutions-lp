@@ -6,18 +6,14 @@ if (canvas && window.innerWidth >= 768) {
     const dpr = window.devicePixelRatio || 1;
 
     interface Dot {
-      // Target (sampled) position
       tx: number;
       ty: number;
-      // Current position (for assembly animation)
       x: number;
       y: number;
-      // Scattered start position
       sx: number;
       sy: number;
       radius: number;
       baseOpacity: number;
-      // Per-dot phase offset for breathing
       phase: number;
     }
 
@@ -27,8 +23,8 @@ if (canvas && window.innerWidth >= 768) {
     let animationId = 0;
     let assemblyStart = 0;
     let isVisible = true;
-    const ASSEMBLY_DURATION = 1500; // ms
-    const ASSEMBLY_DELAY = 1400; // ms after page load
+    let assemblyTriggered = false;
+    const ASSEMBLY_DURATION = 1500;
 
     function resize() {
       const rect = canvas!.parentElement!.getBoundingClientRect();
@@ -75,18 +71,14 @@ if (canvas && window.innerWidth >= 768) {
           const b = data[pixelIndex + 2];
           const a = data[pixelIndex + 3];
 
-          // Support both RGBA (alpha-based) and RGB (brightness-based) images.
-          // For RGB with no transparency, use pixel brightness as the signal.
-          // For RGBA with transparent bg, use alpha.
           const brightness = (r + g + b) / 3;
-          const signal = a < 250 ? a : brightness; // if fully opaque, use brightness
+          const signal = a < 250 ? a : brightness;
 
           if (signal > 30) {
             const norm = signal / 255;
             const targetX = gx * scale + offsetX;
             const targetY = gy * scale + offsetY;
 
-            // Track center area for spark position
             const relX = gx / img.naturalWidth;
             if (relX > 0.4 && relX < 0.6) {
               sumX += targetX;
@@ -109,7 +101,6 @@ if (canvas && window.innerWidth >= 768) {
         }
       }
 
-      // Spark position at center gap between hands
       if (centerCount > 0) {
         sparkX = sumX / centerCount;
         sparkY = sumY / centerCount;
@@ -118,6 +109,16 @@ if (canvas && window.innerWidth >= 768) {
         sparkY = canvasH / 2;
       }
     }
+
+    // Exported startAssembly — triggered by hero entrance timeline
+    function startAssembly() {
+      if (assemblyTriggered) return;
+      assemblyTriggered = true;
+      assemblyStart = performance.now();
+    }
+
+    // Listen for the hero entrance event
+    window.addEventListener('start-adam-assembly', startAssembly);
 
     function draw(now: number) {
       if (!isVisible) {
@@ -129,9 +130,21 @@ if (canvas && window.innerWidth >= 768) {
       const canvasH = canvas!.height / dpr;
       ctx!.clearRect(0, 0, canvasW, canvasH);
 
+      // If assembly hasn't been triggered yet, draw scattered dots faintly
+      if (!assemblyTriggered) {
+        for (let i = 0; i < dots.length; i++) {
+          const d = dots[i];
+          ctx!.beginPath();
+          ctx!.arc(d.x, d.y, d.radius, 0, Math.PI * 2);
+          ctx!.fillStyle = `rgba(6, 182, 212, ${d.baseOpacity * 0.15})`;
+          ctx!.fill();
+        }
+        animationId = requestAnimationFrame(draw);
+        return;
+      }
+
       const elapsed = now - assemblyStart;
-      const assemblyElapsed = elapsed - ASSEMBLY_DELAY;
-      const assemblyT = Math.max(0, Math.min(1, assemblyElapsed / ASSEMBLY_DURATION));
+      const assemblyT = Math.max(0, Math.min(1, elapsed / ASSEMBLY_DURATION));
       const easedT = easeOutCubic(assemblyT);
 
       const breathTime = now / 1000;
@@ -139,12 +152,10 @@ if (canvas && window.innerWidth >= 768) {
       for (let i = 0; i < dots.length; i++) {
         const d = dots[i];
 
-        // Assembly interpolation
         if (assemblyT < 1) {
           d.x = d.sx + (d.tx - d.sx) * easedT;
           d.y = d.sy + (d.ty - d.sy) * easedT;
         } else {
-          // Breathing oscillation
           const breathX = Math.sin(breathTime * 0.8 + d.phase) * 1.5;
           const breathY = Math.cos(breathTime * 0.6 + d.phase * 1.3) * 1.5;
           d.x = d.tx + breathX;
@@ -161,7 +172,7 @@ if (canvas && window.innerWidth >= 768) {
         ctx!.fill();
       }
 
-      // Fingertip spark (only after assembly completes)
+      // Fingertip spark
       if (assemblyT >= 1) {
         const sparkPhase = (now % 3000) / 3000;
         const sparkOpacity = 0.12 + Math.sin(sparkPhase * Math.PI * 2) * 0.08;
@@ -184,7 +195,6 @@ if (canvas && window.innerWidth >= 768) {
       animationId = requestAnimationFrame(draw);
     }
 
-    // IntersectionObserver to pause when off-screen
     const observer = new IntersectionObserver(
       (entries) => {
         isVisible = entries[0].isIntersecting;
@@ -193,20 +203,15 @@ if (canvas && window.innerWidth >= 768) {
     );
     observer.observe(canvas);
 
-    // Load image and start
     const img = new Image();
     img.onload = () => {
       resize();
       sampleImage(img);
-      assemblyStart = performance.now();
       animationId = requestAnimationFrame(draw);
     };
-    img.onerror = () => {
-      // Silent fail — no image, no effect
-    };
+    img.onerror = () => {};
     img.src = '/adam-hands.png';
 
-    // Handle resize
     let resizeTimeout: number;
     window.addEventListener('resize', () => {
       clearTimeout(resizeTimeout);

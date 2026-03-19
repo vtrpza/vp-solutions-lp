@@ -9,20 +9,35 @@ import '../styles/global.css';
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
 
-    <title>VP Solutions — Transformamos Ideias em Produtos Digitais</title>
-    <meta name="description" content="Você tem a ideia, nós temos a expertise. Transformamos seu sonho em um produto digital de verdade — do zero ao lançamento. Sem termos técnicos, sem complicação." />
+    <title>VP Solutions — Seu Produto Digital do Zero ao Deploy, Sem Intermediários</title>
+    <meta name="description" content="Desenvolvedor sênior com 10+ anos construindo SaaS, sites e sistemas sob medida. Você fala direto comigo, acompanha cada etapa, e paga preço justo. Fale comigo hoje." />
 
     <!-- OG Tags -->
-    <meta property="og:title" content="VP Solutions — Transformamos Ideias em Produtos Digitais" />
-    <meta property="og:description" content="Você tem a ideia, nós temos a expertise. Transformamos seu sonho em um produto digital de verdade — do zero ao lançamento." />
+    <meta property="og:title" content="VP Solutions — Seu Produto Digital do Zero ao Deploy, Sem Intermediários" />
+    <meta property="og:description" content="Desenvolvedor sênior com 10+ anos construindo SaaS, sites e sistemas sob medida. Você fala direto comigo, acompanha cada etapa, e paga preço justo." />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="pt_BR" />
 
     <!-- Preconnect for fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <noscript>
+      <style>
+        .page-loader { display: none !important; }
+        .reveal { opacity: 1 !important; transform: none !important; }
+        .cursor-dot, .cursor-ring, .cursor-glow { display: none !important; }
+      </style>
+    </noscript>
   </head>
   <body>
+    <!-- Page loader -->
+    <div class="page-loader"></div>
+
+    <!-- Custom cursor -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-ring"></div>
+
     <!-- Background effects -->
     <div class="grid-bg"></div>
     <div class="orb orb-1"></div>
@@ -38,10 +53,17 @@ import '../styles/global.css';
 
     <!-- Client scripts -->
     <script>
+      import '../scripts/smooth-scroll';
+      import '../scripts/page-loader';
+      import '../scripts/hero-entrance';
+      import '../scripts/gsap-animations';
       import '../scripts/particles';
       import '../scripts/adam-hands';
-      import '../scripts/cursor-glow';
-      import '../scripts/scroll-reveal';
+      import '../scripts/custom-cursor';
+      import '../scripts/magnetic';
+      import '../scripts/card-tilt';
+      import '../scripts/text-reveal';
+      import '../scripts/terminal-typing';
       import '../scripts/counter';
     </script>
   </body>

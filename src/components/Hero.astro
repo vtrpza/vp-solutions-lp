@@ -1,44 +1,45 @@
 ---
 ---
 
-<section class="min-h-screen flex flex-col items-center justify-center text-center px-6 md:px-10 pt-28 pb-20 relative overflow-hidden">
+<section id="hero-section" class="min-h-screen flex flex-col items-center justify-center text-center px-6 md:px-10 pt-28 pb-20 relative overflow-hidden">
   <!-- Dot-matrix Creation of Adam hands -->
   <canvas id="adam-hands-canvas" class="absolute inset-0 w-full h-full pointer-events-none hidden md:block opacity-60"></canvas>
 
   <!-- Content (above canvas) -->
   <div class="relative z-10 flex flex-col items-center">
     <!-- Badge -->
-    <div class="inline-flex items-center gap-2 bg-bg-card/60 border border-border px-4 py-1.5 rounded-full text-xs text-text-secondary mb-8 backdrop-blur-sm animate-fade-in-up" style="animation-delay: 0.2s;">
+    <div id="hero-badge" class="inline-flex items-center gap-2 bg-bg-card/60 border border-border px-4 py-1.5 rounded-full text-xs text-text-secondary mb-8 backdrop-blur-sm" style="visibility:hidden;">
       <span class="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse-dot"></span>
-      Disponível para novos projetos
+      Apenas 3 vagas para novos projetos em Q2 2026
     </div>
 
     <!-- Heading -->
-    <h1 class="text-[40px] md:text-[72px] font-extrabold leading-[1.02] tracking-[-3px] max-w-[900px] mb-6 animate-fade-in-up" style="animation-delay: 0.4s;">
-      Sua ideia merece<br>
-      <span class="gradient-text">virar realidade</span>
+    <h1 id="hero-heading" class="text-[40px] md:text-[72px] font-extrabold leading-[1.02] tracking-[-3px] max-w-[900px] mb-6" style="visibility:hidden;">
+      Eu transformo sua ideia<br>
+      <span class="gradient-text">em produto real</span>
     </h1>
 
     <!-- Subheading -->
-    <p class="text-base md:text-lg text-text-secondary max-w-[520px] leading-relaxed mb-10 animate-fade-in-up" style="animation-delay: 0.6s;">
-      Você tem a visão. Nós temos a expertise para transformá-la em um produto digital de verdade — do zero ao lançamento.
+    <p id="hero-subheading" class="text-base md:text-lg text-text-secondary max-w-[560px] leading-relaxed mb-10" style="visibility:hidden;">
+      Chega de orçamentos absurdos, prazos estourados e agências que terceirizam tudo.<br class="hidden sm:block">
+      Aqui você fala direto comigo — quem projeta, desenvolve e entrega seu produto do zero ao deploy.
     </p>
 
     <!-- CTAs -->
-    <div class="flex flex-col sm:flex-row gap-4 mb-16 animate-fade-in-up" style="animation-delay: 0.8s;">
-      <a href="#contato" class="btn-primary">Quero Meu Projeto →</a>
-      <a href="#resultados" class="btn-secondary">Veja Resultados ↓</a>
+    <div id="hero-ctas" class="flex flex-col sm:flex-row gap-4 mb-16" style="visibility:hidden;">
+      <a href="#contato" class="btn-primary" data-magnetic>Quero Meu Projeto →</a>
+      <a href="#resultados" class="btn-secondary">Veja o que já criamos ↓</a>
     </div>
 
     <!-- Stats -->
-    <div class="flex flex-col sm:flex-row gap-8 sm:gap-12 pt-10 border-t border-border animate-fade-in-up" style="animation-delay: 1s;">
+    <div id="hero-stats" class="flex flex-col sm:flex-row gap-8 sm:gap-12 pt-10 border-t border-border" style="visibility:hidden;">
       <div class="text-center">
         <div class="text-3xl font-extrabold text-accent tracking-tight" data-target="50">0+</div>
         <div class="text-xs text-text-muted uppercase tracking-wider mt-1">Projetos Entregues</div>
       </div>
       <div class="text-center">
-        <div class="text-3xl font-extrabold text-accent tracking-tight" data-target="5">0+</div>
-        <div class="text-xs text-text-muted uppercase tracking-wider mt-1">Anos de Experiência</div>
+        <div class="text-3xl font-extrabold text-accent tracking-tight" data-target="10">0+</div>
+        <div class="text-xs text-text-muted uppercase tracking-wider mt-1">Anos Construindo</div>
       </div>
       <div class="text-center">
         <div class="text-3xl font-extrabold text-accent tracking-tight" data-target="100">0%</div>

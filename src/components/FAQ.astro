@@ -1,0 +1,54 @@
+---
+const faqs = [
+  {
+    question: "Quanto custa um projeto?",
+    answer: "Depende do escopo, mas a maioria dos projetos fica entre R$ 5.000 e R$ 30.000. Você recebe uma estimativa detalhada antes de qualquer compromisso — grátis.",
+  },
+  {
+    question: "Quanto tempo leva para ficar pronto?",
+    answer: "Projetos simples (landing pages, sites institucionais) ficam prontos em 2 a 4 semanas. Produtos mais complexos (SaaS, sistemas) levam de 6 a 12 semanas. Você recebe um cronograma claro antes de começarmos.",
+  },
+  {
+    question: "E se eu não gostar do resultado?",
+    answer: "Você acompanha o projeto semana a semana. Nada é entregue sem sua aprovação. Se em qualquer etapa você sentir que não está no caminho certo, a gente ajusta — sem custo adicional dentro do escopo combinado.",
+  },
+  {
+    question: "Você trabalha sozinho? Isso não é arriscado?",
+    answer: "Trabalhar com uma pessoa só significa menos ruído, mais velocidade e mais responsabilidade. Eu não delego: sou eu quem projeta, desenvolve e entrega. Para projetos maiores, tenho parceiros de confiança que já trabalharam comigo.",
+  },
+  {
+    question: "Você dá suporte depois do lançamento?",
+    answer: "Sim. Todo projeto inclui 30 dias de suporte gratuito e monitoramento. Depois disso, ofereço planos de manutenção sob medida.",
+  },
+  {
+    question: "Como funciona o pagamento?",
+    answer: "Normalmente 40% na aprovação do escopo, 30% na entrega do MVP, e 30% na entrega final. Aceito PIX, transferência e cartão.",
+  },
+];
+---
+
+<section id="faq" class="py-24 px-6 md:px-10 max-w-[800px] mx-auto">
+  <div class="text-center mb-14">
+    <div class="text-[11px] font-semibold uppercase tracking-[3px] text-accent mb-4 reveal">Dúvidas</div>
+    <h2 class="text-3xl md:text-[44px] font-bold tracking-tight mb-4 reveal reveal-delay-1">Perguntas que todo mundo faz</h2>
+    <p class="text-base text-text-secondary max-w-[560px] mx-auto reveal reveal-delay-2">
+      Transparência é regra aqui. Se sua dúvida não está abaixo, me manda uma mensagem.
+    </p>
+  </div>
+
+  <div class="space-y-4">
+    {faqs.map((faq, i) => (
+      <details class={`group glass-card overflow-hidden reveal reveal-delay-${Math.min(i + 1, 5)}`}>
+        <summary class="flex items-center justify-between gap-4 p-6 cursor-pointer list-none select-none text-left">
+          <h3 class="text-base font-semibold pr-4">{faq.question}</h3>
+          <span class="shrink-0 w-6 h-6 rounded-full border border-border flex items-center justify-center text-accent transition-transform group-open:rotate-45">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </span>
+        </summary>
+        <div class="px-6 pb-6 text-sm text-text-secondary leading-relaxed">
+          {faq.answer}
+        </div>
+      </details>
+    ))}
+  </div>
+</section>

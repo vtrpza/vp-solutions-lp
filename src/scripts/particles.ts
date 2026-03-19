@@ -1,8 +1,12 @@
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
 const canvas = document.getElementById('particles') as HTMLCanvasElement;
 if (canvas) {
   const ctx = canvas.getContext('2d')!;
   const isMobile = window.innerWidth < 768;
-  const particleCount = isMobile ? 20 : 60;
+  const particleCount = isMobile ? 15 : 50;
+  let globalOpacity = 1;
 
   function resize() {
     canvas.width = window.innerWidth;
@@ -10,6 +14,17 @@ if (canvas) {
   }
   resize();
   window.addEventListener('resize', resize);
+
+  // Fade particles as user scrolls past hero
+  ScrollTrigger.create({
+    trigger: 'body',
+    start: 'top top',
+    end: '+=800',
+    scrub: true,
+    onUpdate: (self) => {
+      globalOpacity = 1 - self.progress * 0.7; // fades to 30% opacity
+    },
+  });
 
   class Particle {
     x: number;
@@ -38,7 +53,7 @@ if (canvas) {
     draw() {
       ctx.beginPath();
       ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(6, 182, 212, ${this.opacity})`;
+      ctx.fillStyle = `rgba(6, 182, 212, ${this.opacity * globalOpacity})`;
       ctx.fill();
     }
   }
@@ -60,7 +75,7 @@ if (canvas) {
           ctx.beginPath();
           ctx.moveTo(particles[i].x, particles[i].y);
           ctx.lineTo(particles[j].x, particles[j].y);
-          ctx.strokeStyle = `rgba(6, 182, 212, ${0.06 * (1 - dist / connectionDist)})`;
+          ctx.strokeStyle = `rgba(6, 182, 212, ${0.06 * (1 - dist / connectionDist) * globalOpacity})`;
           ctx.lineWidth = 0.5;
           ctx.stroke();
         }

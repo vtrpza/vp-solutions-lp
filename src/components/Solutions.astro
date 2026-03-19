@@ -2,40 +2,53 @@
 const solutions = [
   {
     icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/><rect x="2" y="2" width="20" height="20" rx="2"/></svg>`,
-    title: "Seu próprio SaaS",
-    description: "Transforme sua ideia em uma plataforma online que gera receita recorrente. Do conceito ao produto completo.",
+    title: "SaaS pronto pra faturar",
+    description: "Sua plataforma completa: autenticação, planos de assinatura com Stripe, painel administrativo, API REST documentada e infra na nuvem. Você lança, cobra e escala — sem depender de ninguém.",
   },
   {
     icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/><path d="M7 8h10"/><path d="M7 12h6"/></svg>`,
-    title: "Site profissional",
-    description: "Presença digital que impressiona e converte. Landing pages, sites institucionais, e-commerce.",
+    title: "Sites que vendem por você",
+    description: "Landing pages, sites institucionais e e-commerces que carregam em menos de 2 segundos, ranqueiam no Google e transformam clique em lead. Design estratégico, copywriting e performance obsessiva.",
   },
   {
     icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>`,
-    title: "Sistemas sob medida",
-    description: "Dashboards, portais, aplicações internas — ferramentas digitais feitas exatamente para o seu negócio.",
+    title: "Sistemas que eliminam retrabalho",
+    description: "Dashboards em tempo real, portais de clientes, CRMs internos, ferramentas de gestão. Feito sob medida pro seu fluxo de trabalho — sem gambiarras em planilha, sem pagar por funcionalidades que você não usa.",
+  },
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a4 4 0 0 0-4 4c0 2 2 3 2 6h4c0-3 2-4 2-6a4 4 0 0 0-4-4z"/><path d="M10 18h4"/><path d="M10 22h4"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M4.93 4.93l1.41 1.41"/><path d="M17.66 6.34l1.41-1.41"/></svg>`,
+    title: "Automação com IA integrada",
+    description: "Chatbots inteligentes, geração automática de relatórios, classificação de dados com IA e integrações com APIs como OpenAI e WhatsApp. Seu negócio operando no piloto automático onde faz sentido.",
+  },
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><path d="M12 18h.01"/></svg>`,
+    title: "Apps mobile nativos",
+    description: "Aplicativos para iOS e Android com React Native: notificações push, offline-first, integração com câmera, GPS e pagamentos. Do protótipo à publicação nas lojas.",
   },
 ];
 ---
 
 <section id="solucoes" class="py-24 px-6 md:px-10 max-w-[1100px] mx-auto">
   <div class="text-[11px] font-semibold uppercase tracking-[3px] text-accent mb-4 reveal">Soluções</div>
-  <h2 class="text-3xl md:text-[44px] font-bold tracking-tight mb-4 reveal reveal-delay-1">O que podemos criar para você</h2>
+  <h2 class="text-3xl md:text-[44px] font-bold tracking-tight mb-4 reveal reveal-delay-1" data-split="words">Tecnologia que paga seu investimento de volta</h2>
   <p class="text-base text-text-secondary max-w-[560px] mb-14 reveal reveal-delay-2">
-    Soluções digitais completas, pensadas para o seu negócio crescer.
+    Cada projeto é construído do zero, com código limpo, arquitetura escalável e um objetivo claro: gerar receita pro seu negócio.
   </p>
 
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-5" style="perspective: 1000px;">
     {solutions.map((sol, i) => (
-      <div class={`glass-card p-8 transition-all duration-400 hover:translate-y-[-8px] hover:border-accent/25 hover:shadow-[0_20px_60px_rgba(6,182,212,0.08)] hover:bg-bg-card/80 relative overflow-hidden group reveal reveal-delay-${i + 1}`}>
+      <div
+        class={`glass-card card-spotlight p-8 transition-all duration-400 hover:translate-y-[-8px] hover:border-accent/25 hover:shadow-[0_20px_60px_rgba(6,182,212,0.08)] hover:bg-bg-card/80 relative overflow-hidden group reveal reveal-delay-${i + 1}`}
+        data-tilt
+      >
         <!-- Top glow line -->
         <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
 
-        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-accent/15 to-transparent border border-accent/20 flex items-center justify-center text-accent mb-5 transition-all group-hover:scale-110 group-hover:border-accent group-hover:from-accent/25">
+        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-accent/15 to-transparent border border-accent/20 flex items-center justify-center text-accent mb-5 transition-all group-hover:scale-110 group-hover:border-accent group-hover:from-accent/25 relative z-10">
           <Fragment set:html={sol.icon} />
         </div>
-        <h3 class="text-lg font-semibold mb-2">{sol.title}</h3>
-        <p class="text-sm text-text-secondary leading-relaxed">{sol.description}</p>
+        <h3 class="text-lg font-semibold mb-2 relative z-10">{sol.title}</h3>
+        <p class="text-sm text-text-secondary leading-relaxed relative z-10">{sol.description}</p>
       </div>
     ))}
   </div>

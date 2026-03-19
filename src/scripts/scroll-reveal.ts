@@ -1,13 +1,2 @@
-const observer = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  },
-  { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
-);
-
-document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+// Scroll reveal is now handled by GSAP ScrollTrigger batch in gsap-animations.ts
+// This file kept for backwards compatibility — no-op

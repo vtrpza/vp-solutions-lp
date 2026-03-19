@@ -1,8 +1,9 @@
 ---
 const badges = [
-  "100% dos projetos entregues",
-  "Comunicação direta comigo",
-  "Transparência total",
+  "10 anos de experiência",
+  "Contato direto, sem intermediários",
+  "Transparência em cada etapa",
+  "100% de entrega no prazo",
 ];
 ---
 
@@ -10,7 +11,7 @@ const badges = [
   <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
     <!-- Founder photo -->
     <div class="reveal">
-      <div class="glass-card max-w-[400px] mx-auto relative overflow-hidden rounded-2xl">
+      <div class="about-photo-reveal glass-card max-w-[400px] mx-auto relative overflow-hidden rounded-2xl" style="clip-path: inset(0 0% 0 0);">
         <div class="absolute inset-0 bg-gradient-to-br from-accent/10 to-transparent z-10 pointer-events-none"></div>
         <img
           src="/founder.png"
@@ -23,19 +24,19 @@ const badges = [
 
     <!-- Story -->
     <div>
-      <div class="text-[11px] font-semibold uppercase tracking-[3px] text-accent mb-4 reveal">Quem está por trás</div>
-      <h2 class="text-3xl md:text-[44px] font-bold tracking-tight mb-6 reveal reveal-delay-1">Prazer, sou o fundador da VP Solutions</h2>
+      <div class="text-[11px] font-semibold uppercase tracking-[3px] text-accent mb-4 reveal">Quem faz acontecer</div>
+      <h2 class="text-3xl md:text-[44px] font-bold tracking-tight mb-6 reveal reveal-delay-1">Prazer, Vitor Pouza. Pode me chamar de VP.</h2>
       <p class="text-base text-text-secondary leading-relaxed mb-4 reveal reveal-delay-2">
-        Há mais de 5 anos ajudo empreendedores a tirarem suas ideias do papel e transformá-las em produtos digitais de verdade.
+        Tenho 30 anos e mexo com computador desde os 5. Aquele moleque que desmontava tudo pra entender como funcionava virou o cara que hoje constrói produtos digitais pra negócios reais. Trabalho com tecnologia profissionalmente desde 2016 — são 10 anos resolvendo problemas com código.
       </p>
       <p class="text-base text-text-secondary leading-relaxed mb-8 reveal reveal-delay-3">
-        Acredito que toda boa ideia merece a melhor execução — e é isso que entrego em cada projeto. Você fala diretamente comigo, sem intermediários, e acompanha cada passo da construção do seu produto.
+        Aqui não tem agência, não tem equipe de 50 pessoas, não tem gerente de projeto te mandando e-mail genérico. Sou eu. Você fala comigo, eu entendo o seu problema, eu codifico a solução. Cada projeto é pessoal — acompanho do primeiro rascunho até o deploy. No final, você leva um produto que funciona de verdade, não um slide bonito.
       </p>
 
       <!-- Trust badges -->
       <div class="flex flex-wrap gap-3 reveal reveal-delay-4">
         {badges.map((badge) => (
-          <span class="inline-flex items-center gap-2 bg-bg-card/60 border border-border px-4 py-2 rounded-full text-sm text-text-secondary backdrop-blur-sm">
+          <span class="trust-badge inline-flex items-center gap-2 bg-bg-card/60 border border-border px-4 py-2 rounded-full text-sm text-text-secondary backdrop-blur-sm">
             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-accent">
               <polyline points="20 6 9 17 4 12"/>
             </svg>

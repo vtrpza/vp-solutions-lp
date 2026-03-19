@@ -2,27 +2,48 @@
 ---
 
 <section id="contato" class="py-24 px-6 md:px-10 max-w-[700px] mx-auto text-center">
-  <div class="relative bg-gradient-to-br from-accent/[0.08] to-bg-card border border-accent/20 rounded-3xl p-10 md:p-14 overflow-hidden reveal">
+  <div class="relative border border-accent/20 rounded-3xl p-10 md:p-14 overflow-hidden reveal animate-border-glow">
+    <!-- Animated gradient mesh background -->
+    <div class="cta-mesh absolute inset-0 pointer-events-none" style="--g1-x: 30%; --g1-y: 70%; --g2-x: 70%; --g2-y: 30%; background: radial-gradient(600px circle at var(--g1-x) var(--g1-y), rgba(6,182,212,0.08), transparent 60%), radial-gradient(400px circle at var(--g2-x) var(--g2-y), rgba(103,232,249,0.05), transparent 50%), radial-gradient(500px circle at 50% 50%, rgba(6,182,212,0.04), transparent 70%);"></div>
+
     <!-- Top accent line -->
     <div class="absolute top-[-2px] left-[20%] right-[20%] h-[2px] bg-gradient-to-r from-transparent via-accent to-transparent"></div>
 
-    <!-- Ambient orb -->
-    <div class="absolute bottom-[-100px] right-[-100px] w-[300px] h-[300px] bg-[radial-gradient(circle,rgba(6,182,212,0.08),transparent_70%)] pointer-events-none"></div>
-
-    <h2 class="text-2xl md:text-4xl font-bold tracking-tight mb-4 relative">
-      Pronto para tirar sua<br>ideia do papel?
+    <h2 class="text-2xl md:text-4xl font-bold tracking-tight mb-4 relative" data-split="chars">
+      Vamos tirar sua ideia do papel?
     </h2>
     <p class="text-text-secondary mb-8 text-base relative">
-      Me conta sobre seu projeto. Respondo em até 24 horas — sem compromisso.
+      Me conta o que você tem em mente. Em até 24 horas, você recebe uma<br class="hidden sm:block">
+      avaliação inicial gratuita com estimativa de prazo e investimento.<br class="hidden sm:block">
+      Sem compromisso. Sem pressão de vendas.
     </p>
 
     <div class="flex flex-col sm:flex-row gap-3 justify-center relative mb-6">
-      <a href="#" class="btn-primary">WhatsApp</a>
-      <a href="#" class="btn-secondary">Enviar Email</a>
+      <a href="#" class="btn-primary" data-magnetic>Conversar no WhatsApp →</a>
+      <a href="#" class="btn-secondary" data-magnetic>Prefiro email →</a>
     </div>
 
-    <p class="text-sm text-text-muted relative">
-      Sem termos técnicos. Sem enrolação. Só uma conversa honesta sobre sua ideia.
-    </p>
+    <!-- Micro-commitment badges -->
+    <div class="flex flex-col sm:flex-row gap-4 justify-center relative text-sm text-text-muted">
+      <span class="flex items-center gap-1.5 justify-center">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-accent"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Resposta em até 24h
+      </span>
+      <span class="flex items-center gap-1.5 justify-center">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-accent"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Conversa sem compromisso
+      </span>
+      <span class="flex items-center gap-1.5 justify-center">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-accent"><polyline points="20 6 9 17 4 12"/></svg>
+        Orçamento transparente
+      </span>
+    </div>
+
+    <!-- Guarantee -->
+    <div class="mt-8 pt-6 border-t border-border relative">
+      <p class="text-sm text-text-secondary leading-relaxed max-w-[500px] mx-auto">
+        <span class="text-accent font-semibold">Minha garantia:</span> se na primeira conversa você sentir que não sou a pessoa certa para o seu projeto, eu te indico alguém que seja — de graça, sem ressentimento. Meu objetivo não é fechar todo projeto. É fazer poucos, mas fazer direito.
+      </p>
+    </div>
   </div>
 </section>

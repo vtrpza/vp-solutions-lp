@@ -1,21 +1,51 @@
 ---
-const items = [
-  "Projetos entregues no prazo",
-  "Comunicação transparente",
-  "Sem surpresas no orçamento",
-  "Do zero ao produto final",
-  "Suporte pós-lançamento",
-  "Acompanhamento semanal",
+const row1 = [
+  "Prazo e preço combinados. Sempre.",
+  "Zero surpresas. Transparência radical.",
+  "Você acompanha cada sprint",
+  "Do rascunho ao deploy",
+  "Suporte após o lançamento incluso",
+  "Código limpo. Performance real.",
+];
+
+const row2 = [
+  "Site rápido que o Google ama",
+  "Funciona perfeito no celular",
+  "Preparado para crescer",
+  "Seu produto, seu código",
+  "Integra com qualquer ferramenta",
+  "Pronto para receber pagamentos",
 ];
 ---
 
-<div class="py-10 overflow-hidden border-y border-border">
-  <div class="flex gap-12 animate-marquee w-max">
-    {[...items, ...items].map((item) => (
+<div class="marquee-section py-10 overflow-hidden border-y border-border relative">
+  <!-- Animated gradient sweep on borders -->
+  <div class="absolute top-0 left-0 right-0 h-px overflow-hidden">
+    <div class="h-full w-1/3 bg-gradient-to-r from-transparent via-accent to-transparent animate-gradient-sweep" style="background-size: 200% 100%;"></div>
+  </div>
+
+  <!-- Row 1 — normal direction -->
+  <div class="flex gap-12 animate-marquee w-max mb-4">
+    {[...row1, ...row1].map((item) => (
       <span class="text-sm font-semibold text-text-muted whitespace-nowrap uppercase tracking-widest flex items-center gap-3">
         {item}
         <span class="text-accent text-[8px]">●</span>
       </span>
     ))}
+  </div>
+
+  <!-- Row 2 — reverse direction -->
+  <div class="flex gap-12 animate-marquee-reverse w-max">
+    {[...row2, ...row2].map((item) => (
+      <span class="text-sm font-semibold text-text-muted/60 whitespace-nowrap uppercase tracking-widest flex items-center gap-3">
+        {item}
+        <span class="text-accent/50 text-[8px]">●</span>
+      </span>
+    ))}
+  </div>
+
+  <!-- Bottom gradient sweep -->
+  <div class="absolute bottom-0 left-0 right-0 h-px overflow-hidden">
+    <div class="h-full w-1/3 bg-gradient-to-r from-transparent via-accent to-transparent animate-gradient-sweep" style="background-size: 200% 100%; animation-delay: -2s;"></div>
   </div>
 </div>
