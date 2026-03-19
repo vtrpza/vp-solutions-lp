@@ -404,6 +404,12 @@ body {
   margin-left: 2px;
 }
 
+/* ===== HOW IT WORKS: ASCII BG ===== */
+.ascii-bg {
+  mask-image: radial-gradient(ellipse 90% 80% at 60% 40%, black 20%, transparent 70%);
+  -webkit-mask-image: radial-gradient(ellipse 90% 80% at 60% 40%, black 20%, transparent 70%);
+}
+
 /* ===== HOW IT WORKS ===== */
 .hiw-step-number { transition: opacity 0.3s ease; }
 .hiw-dot, .hiw-mobile-step-dot { transition: background-color 0.3s ease, border-color 0.3s ease; }
