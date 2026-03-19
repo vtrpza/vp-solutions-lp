@@ -2,36 +2,59 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import SplitType from 'split-type'
 
-// Split elements with data-split attribute and animate on scroll
-document.querySelectorAll<HTMLElement>('[data-split]').forEach((el) => {
-  const type = el.getAttribute('data-split') as 'chars' | 'words' | 'lines'
+interface SplitRecord {
+  el: HTMLElement
+  type: 'chars' | 'words' | 'lines'
+  split: SplitType
+  trigger: ScrollTrigger
+}
 
-  const split = new SplitType(el, { types: type })
-  const targets = split[type]
+const records: SplitRecord[] = []
 
-  if (!targets || targets.length === 0) return
+function initSplits() {
+  // Kill existing triggers and revert splits
+  records.forEach((rec) => {
+    rec.trigger.kill()
+    rec.split.revert()
+  })
+  records.length = 0
 
-  gsap.set(targets, { opacity: 0, y: type === 'chars' ? 40 : 30 })
+  document.querySelectorAll<HTMLElement>('[data-split]').forEach((el) => {
+    const type = el.getAttribute('data-split') as 'chars' | 'words' | 'lines'
+    const split = new SplitType(el, { types: type })
+    const targets = split[type]
 
-  gsap.to(targets, {
-    opacity: 1,
-    y: 0,
-    duration: type === 'chars' ? 0.5 : 0.7,
-    stagger: type === 'chars' ? 0.02 : type === 'words' ? 0.04 : 0.08,
-    ease: 'power3.out',
-    scrollTrigger: {
+    if (!targets || targets.length === 0) return
+
+    gsap.set(targets, { opacity: 0, y: type === 'chars' ? 40 : 30 })
+
+    const tween = gsap.to(targets, {
+      opacity: 1,
+      y: 0,
+      duration: type === 'chars' ? 0.5 : 0.7,
+      stagger: type === 'chars' ? 0.02 : type === 'words' ? 0.04 : 0.08,
+      ease: 'power3.out',
+      paused: true,
+    })
+
+    const trigger = ScrollTrigger.create({
       trigger: el,
       start: 'top 85%',
       once: true,
-    },
-  })
-})
+      onEnter: () => tween.play(),
+    })
 
-// Cleanup on resize
+    records.push({ el, type, split, trigger })
+  })
+}
+
+initSplits()
+
+// Re-initialize on resize so SplitType recalculates dimensions
 let resizeTimer: number
 window.addEventListener('resize', () => {
   clearTimeout(resizeTimer)
   resizeTimer = window.setTimeout(() => {
-    ScrollTrigger.refresh()
+    initSplits()
   }, 300)
 })

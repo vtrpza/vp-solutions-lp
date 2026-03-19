@@ -15,9 +15,12 @@ if (loader) {
   })
 
   // Stagger in orbs
-  tl.from('.orb', {
+  tl.fromTo('.orb', {
     scale: 0,
     opacity: 0,
+  }, {
+    scale: 1,
+    opacity: 1,
     duration: 1,
     stagger: 0.15,
     ease: 'power2.out',

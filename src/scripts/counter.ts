@@ -4,7 +4,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 document.querySelectorAll<HTMLElement>('[data-target]').forEach((el) => {
   const target = parseInt(el.getAttribute('data-target') || '0');
   if (!target) return;
-  const suffix = el.textContent?.replace(/[0-9]/g, '') || '';
+  const suffix = el.textContent?.match(/[^0-9]+$/)?.[0] || '';
 
   const obj = { val: 0 };
 

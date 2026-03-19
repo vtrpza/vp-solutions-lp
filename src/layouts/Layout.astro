@@ -27,6 +27,8 @@ import '../styles/global.css';
         .page-loader { display: none !important; }
         .reveal { opacity: 1 !important; transform: none !important; }
         .cursor-dot, .cursor-ring, .cursor-glow { display: none !important; }
+        .hiw-panel [data-hiw-content], .hiw-mobile-panel { opacity: 1 !important; transform: none !important; }
+        .hiw-pain-hook::after { display: none !important; }
       </style>
     </noscript>
   </head>
@@ -57,6 +59,7 @@ import '../styles/global.css';
       import '../scripts/page-loader';
       import '../scripts/hero-entrance';
       import '../scripts/gsap-animations';
+      import '../scripts/hiw-scroll';
       import '../scripts/particles';
       import '../scripts/adam-hands';
       import '../scripts/custom-cursor';

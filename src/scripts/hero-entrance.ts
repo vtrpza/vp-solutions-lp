@@ -16,7 +16,10 @@ if (heroSection) {
   const tl = gsap.timeline({ delay: 0.6 })
 
   // Badge
-  tl.to('#hero-badge', {
+  tl.fromTo('#hero-badge', {
+    y: 30,
+    opacity: 0,
+  }, {
     y: 0,
     opacity: 1,
     duration: 0.6,

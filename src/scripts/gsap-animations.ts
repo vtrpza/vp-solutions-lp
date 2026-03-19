@@ -36,11 +36,14 @@ ScrollTrigger.batch('.reveal', {
   once: true,
 })
 
-// ===== ORB PARALLAX =====
+// ===== ORB PARALLAX + FLOAT =====
 const orbs = document.querySelectorAll('.orb')
 if (orbs.length >= 3) {
   const speeds = [0.3, 0.5, 0.7]
+  const floatDurations = [20, 25, 30]
+
   orbs.forEach((orb, i) => {
+    // Scroll-linked parallax
     gsap.to(orb, {
       yPercent: -50 * speeds[i],
       ease: 'none',
@@ -51,6 +54,14 @@ if (orbs.length >= 3) {
         scrub: 1,
       },
     })
+
+    // GSAP-controlled float (replaces CSS animation: float)
+    const dur = floatDurations[i] * 0.25
+    const tl = gsap.timeline({ repeat: -1 })
+    tl.to(orb, { xPercent: 6, scale: 1.05, duration: dur, ease: 'sine.inOut' })
+      .to(orb, { xPercent: -4, scale: 0.95, duration: dur, ease: 'sine.inOut' })
+      .to(orb, { xPercent: 8, scale: 1.02, duration: dur, ease: 'sine.inOut' })
+      .to(orb, { xPercent: 0, scale: 1, duration: dur, ease: 'sine.inOut' })
   })
 }
 
@@ -69,58 +80,21 @@ if (marqueeSection) {
   })
 }
 
-// ===== HOW IT WORKS — HORIZONTAL SCROLL (desktop) =====
-ScrollTrigger.matchMedia({
-  '(min-width: 1024px)': () => {
-    const container = document.querySelector('.horizontal-scroll-container') as HTMLElement
-    const panels = gsap.utils.toArray<HTMLElement>('.horizontal-scroll-panel')
-
-    if (container && panels.length > 1) {
-      const totalWidth = panels.reduce((acc, panel) => acc + panel.offsetWidth, 0)
-
-      gsap.to(panels, {
-        x: () => -(totalWidth - window.innerWidth),
-        ease: 'none',
-        scrollTrigger: {
-          trigger: container,
-          pin: true,
-          scrub: 1,
-          end: () => `+=${totalWidth}`,
-          invalidateOnRefresh: true,
-        },
-      })
-
-      // SVG line draw
-      const svgLine = container.querySelector('.how-it-works-line') as SVGPathElement
-      if (svgLine) {
-        const length = svgLine.getTotalLength()
-        gsap.set(svgLine, { strokeDasharray: length, strokeDashoffset: length })
-        gsap.to(svgLine, {
-          strokeDashoffset: 0,
-          ease: 'none',
-          scrollTrigger: {
-            trigger: container,
-            start: 'top top',
-            end: () => `+=${totalWidth}`,
-            scrub: 1,
-          },
-        })
-      }
-    }
-  },
-})
-
 // ===== SOLUTIONS CARDS STAGGER =====
+gsap.set('[data-tilt]', { y: 80, rotationY: 15, opacity: 0 })
 ScrollTrigger.batch('[data-tilt]', {
   onEnter: (batch) => {
-    gsap.from(batch, {
-      y: 80,
-      rotationY: 15,
-      opacity: 0,
-      duration: 1,
-      stagger: 0.15,
-      ease: 'power3.out',
-    })
+    gsap.fromTo(batch,
+      { y: 80, rotationY: 15, opacity: 0 },
+      {
+        y: 0,
+        rotationY: 0,
+        opacity: 1,
+        duration: 1,
+        stagger: 0.15,
+        ease: 'power3.out',
+      }
+    )
   },
   start: 'top 88%',
   once: true,
@@ -138,15 +112,15 @@ if (aboutPhoto) {
       start: 'top 75%',
       once: true,
     },
-  })
-
-  // Gentle float
-  gsap.to(aboutPhoto, {
-    y: -3,
-    duration: 3,
-    ease: 'sine.inOut',
-    yoyo: true,
-    repeat: -1,
+    onComplete: () => {
+      gsap.to(aboutPhoto, {
+        y: -3,
+        duration: 3,
+        ease: 'sine.inOut',
+        yoyo: true,
+        repeat: -1,
+      })
+    },
   })
 }
 
