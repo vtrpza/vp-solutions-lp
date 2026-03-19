@@ -200,6 +200,18 @@ body {
 .reveal-delay-4 { transition-delay: 0.4s; }
 .reveal-delay-5 { transition-delay: 0.5s; }
 
+/* ===== FAQ ACCORDION ===== */
+.faq-inner {
+  opacity: 0;
+  transform: translateY(-8px);
+}
+.faq-toggle {
+  background: none;
+  border: none;
+  color: inherit;
+  font: inherit;
+}
+
 /* ===== GLASS CARD ===== */
 .glass-card {
   background: rgba(17,17,24,0.5);
