@@ -1,0 +1,68 @@
+---
+const projects = [
+  {
+    tag: "Plataforma SaaS",
+    title: "Dashboard de Analytics",
+    description: "Plataforma que transforma dados em decisões — relatórios visuais em tempo real para gestores.",
+    techs: ["React", "Node.js", "PostgreSQL"],
+  },
+  {
+    tag: "Marketplace",
+    title: "Marketplace B2B",
+    description: "Sistema completo de compra e venda entre empresas, com gestão de pedidos e pagamentos integrados.",
+    techs: ["Next.js", "Stripe", "Prisma"],
+  },
+  {
+    tag: "Fintech",
+    title: "App de Gestão Financeira",
+    description: "Aplicação para controle financeiro pessoal com integração bancária e relatórios automáticos.",
+    techs: ["TypeScript", "Fastify", "Redis"],
+  },
+  {
+    tag: "HealthTech",
+    title: "Portal de Telemedicina",
+    description: "Sistema de consultas online com agendamento, videochamadas e prontuários digitais integrados.",
+    techs: ["React", "WebRTC", "AWS"],
+  },
+];
+---
+
+<section id="resultados" class="py-24 px-6 md:px-10 max-w-[1100px] mx-auto">
+  <div class="text-[11px] font-semibold uppercase tracking-[3px] text-accent mb-4 reveal">Resultados</div>
+  <h2 class="text-3xl md:text-[44px] font-bold tracking-tight mb-4 reveal reveal-delay-1">Ideias que viraram realidade</h2>
+  <p class="text-base text-text-secondary max-w-[560px] mb-14 reveal reveal-delay-2">
+    Uma seleção dos nossos trabalhos mais recentes. Cada projeto reflete nosso compromisso com qualidade.
+  </p>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    {projects.map((project, i) => (
+      <div class={`glass-card overflow-hidden transition-all duration-400 hover:translate-y-[-8px] hover:scale-[1.01] hover:border-accent/25 hover:shadow-[0_20px_60px_rgba(6,182,212,0.08)] group reveal reveal-delay-${(i % 4) + 1}`}>
+        <!-- Browser mockup -->
+        <div class="h-[200px] bg-gradient-to-br from-[#0c1520] to-[#0a1018] flex items-center justify-center relative overflow-hidden">
+          <div class="absolute inset-0 bg-gradient-to-br from-accent-glow to-transparent group-hover:from-accent/15 transition-all"></div>
+          <div class="w-[80%] h-[70%] bg-bg-secondary border border-border rounded-lg relative z-10 transition-transform duration-400 group-hover:translate-y-[-4px] group-hover:scale-[1.02]">
+            <div class="h-6 bg-bg-card border-b border-border rounded-t-lg flex items-center px-2.5 gap-1">
+              <div class="w-1.5 h-1.5 rounded-full bg-border"></div>
+              <div class="w-1.5 h-1.5 rounded-full bg-border"></div>
+              <div class="w-1.5 h-1.5 rounded-full bg-border"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Body -->
+        <div class="p-6">
+          <div class="text-[11px] text-accent font-semibold uppercase tracking-wider mb-2">{project.tag}</div>
+          <h3 class="text-xl font-semibold mb-2">{project.title}</h3>
+          <p class="text-sm text-text-secondary">{project.description}</p>
+          <div class="flex flex-wrap gap-1.5 mt-4">
+            {project.techs.map((tech) => (
+              <span class="text-[11px] px-2.5 py-1 bg-bg-secondary border border-border rounded-md text-text-muted transition-all group-hover:border-accent/20 group-hover:text-text-secondary">
+                {tech}
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>

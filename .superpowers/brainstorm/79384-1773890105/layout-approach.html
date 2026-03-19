@@ -1,0 +1,128 @@
+<h2>Landing Page Layout Approach</h2>
+<p class="subtitle">VP Solutions — Dark & premium landing page for Brazilian audience</p>
+
+<div class="cards">
+  <!-- Option A: Narrative Scroll -->
+  <div class="card" data-choice="a" onclick="toggleSelect(this)">
+    <div class="card-image" style="background: #0a0a0f; padding: 16px; border-radius: 8px;">
+      <div style="font-family: monospace; color: #888; font-size: 11px; line-height: 1.6;">
+        <div style="background: linear-gradient(135deg, #1a1a2e, #0a0a0f); padding: 12px; border-radius: 6px; margin-bottom: 6px;">
+          <div style="color: #7c3aed; font-weight: bold; font-size: 13px;">VP Solutions</div>
+          <div style="color: #e2e8f0; font-size: 16px; margin-top: 8px;">Soluções digitais<br>de alta qualidade</div>
+          <div style="background: #7c3aed; color: white; display: inline-block; padding: 4px 12px; border-radius: 4px; margin-top: 6px; font-size: 10px;">Fale Conosco →</div>
+        </div>
+        <div style="display: flex; gap: 6px; margin-bottom: 6px;">
+          <div style="flex:1; background: #111118; padding: 8px; border-radius: 4px; border: 1px solid #222;">
+            <div style="color: #7c3aed;">◆</div>
+            <div style="color: #aaa; font-size: 9px;">Web Apps</div>
+          </div>
+          <div style="flex:1; background: #111118; padding: 8px; border-radius: 4px; border: 1px solid #222;">
+            <div style="color: #7c3aed;">◆</div>
+            <div style="color: #aaa; font-size: 9px;">SaaS</div>
+          </div>
+          <div style="flex:1; background: #111118; padding: 8px; border-radius: 4px; border: 1px solid #222;">
+            <div style="color: #7c3aed;">◆</div>
+            <div style="color: #aaa; font-size: 9px;">APIs</div>
+          </div>
+        </div>
+        <div style="background: #111118; padding: 8px; border-radius: 4px; border: 1px solid #222; margin-bottom: 6px;">
+          <div style="color: #aaa; font-size: 9px;">━━ Projetos ━━</div>
+          <div style="display: flex; gap: 4px; margin-top: 4px;">
+            <div style="flex:1; height: 30px; background: #1a1a2e; border-radius: 3px;"></div>
+            <div style="flex:1; height: 30px; background: #1a1a2e; border-radius: 3px;"></div>
+          </div>
+        </div>
+        <div style="background: #111118; padding: 8px; border-radius: 4px; border: 1px solid #222;">
+          <div style="color: #aaa; font-size: 9px;">━━ Contato ━━</div>
+          <div style="height: 20px; background: #1a1a2e; border-radius: 3px; margin-top: 4px;"></div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>A. Narrative Scroll</h3>
+      <p>Full-page sections that tell a story as you scroll. Hero → Services → Projects → Contact. Smooth animations reveal content. Classic, proven conversion flow.</p>
+    </div>
+  </div>
+
+  <!-- Option B: Bento Grid -->
+  <div class="card" data-choice="b" onclick="toggleSelect(this)">
+    <div class="card-image" style="background: #0a0a0f; padding: 16px; border-radius: 8px;">
+      <div style="font-family: monospace; color: #888; font-size: 11px; line-height: 1.6;">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: auto auto auto; gap: 6px;">
+          <div style="grid-column: 1 / -1; background: linear-gradient(135deg, #1a1a2e, #0a0a0f); padding: 12px; border-radius: 6px; border: 1px solid #222;">
+            <div style="color: #7c3aed; font-weight: bold; font-size: 13px;">VP Solutions</div>
+            <div style="color: #e2e8f0; font-size: 14px; margin-top: 4px;">Produtos digitais de elite</div>
+          </div>
+          <div style="background: #111118; padding: 10px; border-radius: 6px; border: 1px solid #222;">
+            <div style="color: #7c3aed; font-size: 18px;">⚡</div>
+            <div style="color: #ccc; font-size: 10px;">Web Apps</div>
+            <div style="color: #666; font-size: 8px;">Custom solutions</div>
+          </div>
+          <div style="background: #111118; padding: 10px; border-radius: 6px; border: 1px solid #222;">
+            <div style="color: #7c3aed; font-size: 18px;">🔧</div>
+            <div style="color: #ccc; font-size: 10px;">APIs & Backend</div>
+            <div style="color: #666; font-size: 8px;">Scalable infra</div>
+          </div>
+          <div style="background: #111118; padding: 10px; border-radius: 6px; border: 1px solid #222; height: 40px;">
+            <div style="color: #aaa; font-size: 9px;">Projeto 1</div>
+            <div style="height: 16px; background: #1a1a2e; border-radius: 3px; margin-top: 4px;"></div>
+          </div>
+          <div style="background: #111118; padding: 10px; border-radius: 6px; border: 1px solid #222; height: 40px;">
+            <div style="color: #aaa; font-size: 9px;">Projeto 2</div>
+            <div style="height: 16px; background: #1a1a2e; border-radius: 3px; margin-top: 4px;"></div>
+          </div>
+          <div style="grid-column: 1 / -1; background: linear-gradient(135deg, #7c3aed22, #111118); padding: 10px; border-radius: 6px; border: 1px solid #7c3aed33;">
+            <div style="color: #e2e8f0; font-size: 10px;">Vamos conversar?</div>
+            <div style="display: flex; gap: 4px; margin-top: 4px;">
+              <div style="background: #7c3aed; color: white; padding: 3px 10px; border-radius: 4px; font-size: 9px;">WhatsApp</div>
+              <div style="background: #222; color: #aaa; padding: 3px 10px; border-radius: 4px; font-size: 9px;">Email</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>B. Bento Grid</h3>
+      <p>Modern Apple/Linear-inspired grid layout. Services, projects, and CTAs live in modular cards. Feels contemporary and premium. Great for showcasing multiple things at once.</p>
+    </div>
+  </div>
+
+  <!-- Option C: Cinematic Hero -->
+  <div class="card" data-choice="c" onclick="toggleSelect(this)">
+    <div class="card-image" style="background: #0a0a0f; padding: 16px; border-radius: 8px;">
+      <div style="font-family: monospace; color: #888; font-size: 11px; line-height: 1.6;">
+        <div style="background: linear-gradient(180deg, #0a0a0f, #1a1a2e, #0a0a0f); padding: 12px; border-radius: 6px; border: 1px solid #222; min-height: 80px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; margin-bottom: 6px; position: relative;">
+          <div style="position: absolute; top: 8px; left: 8px; color: #7c3aed; font-weight: bold; font-size: 11px;">VP</div>
+          <div style="position: absolute; top: 8px; right: 8px; color: #666; font-size: 9px;">Menu</div>
+          <div style="color: #e2e8f0; font-size: 18px; font-weight: bold;">Engenharia</div>
+          <div style="color: #e2e8f0; font-size: 18px; font-weight: bold;">de Software</div>
+          <div style="color: #7c3aed; font-size: 18px; font-weight: bold;">Premium</div>
+          <div style="color: #666; font-size: 9px; margin-top: 6px;">Transformamos ideias em produtos digitais excepcionais</div>
+          <div style="display: flex; gap: 6px; margin-top: 8px;">
+            <div style="background: #7c3aed; color: white; padding: 4px 12px; border-radius: 4px; font-size: 9px;">Iniciar Projeto</div>
+            <div style="border: 1px solid #444; color: #aaa; padding: 4px 12px; border-radius: 4px; font-size: 9px;">Ver Projetos</div>
+          </div>
+        </div>
+        <div style="display: flex; gap: 4px; margin-bottom: 6px;">
+          <div style="flex:1; text-align: center; padding: 6px; background: #111118; border-radius: 4px; border: 1px solid #222;">
+            <div style="color: #7c3aed; font-size: 14px; font-weight: bold;">50+</div>
+            <div style="color: #666; font-size: 8px;">Projetos</div>
+          </div>
+          <div style="flex:1; text-align: center; padding: 6px; background: #111118; border-radius: 4px; border: 1px solid #222;">
+            <div style="color: #7c3aed; font-size: 14px; font-weight: bold;">5+</div>
+            <div style="color: #666; font-size: 8px;">Anos</div>
+          </div>
+          <div style="flex:1; text-align: center; padding: 6px; background: #111118; border-radius: 4px; border: 1px solid #222;">
+            <div style="color: #7c3aed; font-size: 14px; font-weight: bold;">100%</div>
+            <div style="color: #666; font-size: 8px;">Dedicação</div>
+          </div>
+        </div>
+        <div style="color: #444; font-size: 8px; text-align: center;">↓ scroll for more</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>C. Cinematic Hero + Scroll</h3>
+      <p>Dramatic full-viewport hero with bold typography and social proof stats. Then scrolls into services, projects, and contact. Maximum first impression impact. Best for solo founders making a strong statement.</p>
+    </div>
+  </div>
+</div>
