@@ -27,11 +27,11 @@ const faqs = [
 ];
 ---
 
-<section id="faq" class="py-24 px-6 md:px-10 max-w-[800px] mx-auto">
-  <div class="text-center mb-14">
+<section id="faq" class="py-16 md:py-24 px-5 md:px-10 max-w-[800px] mx-auto">
+  <div class="text-center mb-8 md:mb-14">
     <div class="text-[11px] font-semibold uppercase tracking-[3px] text-accent mb-4 reveal">Dúvidas</div>
-    <h2 class="text-3xl md:text-[44px] font-bold tracking-tight mb-4 reveal reveal-delay-1">Perguntas que todo mundo faz</h2>
-    <p class="text-base text-text-secondary max-w-[560px] mx-auto reveal reveal-delay-2">
+    <h2 class="text-2xl md:text-[44px] font-bold tracking-tight mb-3 md:mb-4 reveal reveal-delay-1">Perguntas que todo mundo faz</h2>
+    <p class="text-sm md:text-base text-text-secondary max-w-[560px] mx-auto reveal reveal-delay-2">
       Transparência é regra aqui. Se sua dúvida não está abaixo, me manda uma mensagem.
     </p>
   </div>
@@ -39,13 +39,13 @@ const faqs = [
   <div class="space-y-4">
     {faqs.map((faq, i) => (
       <details class={`group glass-card overflow-hidden reveal reveal-delay-${Math.min(i + 1, 5)}`}>
-        <summary class="flex items-center justify-between gap-4 p-6 cursor-pointer list-none select-none text-left">
-          <h3 class="text-base font-semibold pr-4">{faq.question}</h3>
+        <summary class="flex items-center justify-between gap-3 md:gap-4 p-4 md:p-6 cursor-pointer list-none select-none text-left">
+          <h3 class="text-sm md:text-base font-semibold pr-2 md:pr-4">{faq.question}</h3>
           <span class="shrink-0 w-6 h-6 rounded-full border border-border flex items-center justify-center text-accent transition-transform group-open:rotate-45">
             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
           </span>
         </summary>
-        <div class="px-6 pb-6 text-sm text-text-secondary leading-relaxed">
+        <div class="px-4 md:px-6 pb-4 md:pb-6 text-sm text-text-secondary leading-relaxed">
           {faq.answer}
         </div>
       </details>
