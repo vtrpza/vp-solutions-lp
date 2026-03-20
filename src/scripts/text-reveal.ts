@@ -48,7 +48,13 @@ function initSplits() {
   })
 }
 
-initSplits()
+// Defer until load so fonts are ready before SplitType measures character widths,
+// which avoids a forced reflow and ensures correct split positions.
+if (document.readyState === 'complete') {
+  initSplits()
+} else {
+  window.addEventListener('load', initSplits)
+}
 
 // Re-initialize on resize so SplitType recalculates dimensions
 let resizeTimer: number
